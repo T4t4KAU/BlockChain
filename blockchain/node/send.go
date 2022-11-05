@@ -12,7 +12,7 @@ import (
 
 // SendMessage 向指定地址发送数据
 func SendMessage(to string, msg []byte) {
-	fmt.Println("send request to server...")
+	fmt.Printf("send request to server[%s]...", to)
 	conn, err := net.Dial("tcp", to)
 	if err != nil {
 		log.Panicf("connect to server[%s] failed: %v\n", to, err)

@@ -205,7 +205,8 @@ func (c *Chain) MineNewBlock(from, to, amount []string, nodeId string) {
 		// 验证签名 只要有一笔签名的验证失败
 		c.VerifyTransaction(tx)
 	}
-	block = NewBlock(block.Height+1, block.Hash, txs)
+	latestBlock := c.GetLatestBlock()
+	block = NewBlock(latestBlock.Height+1, latestBlock.Hash, txs)
 	// 持久化新生成的区块 插入数据库
 	c.AddBlock(block)
 }

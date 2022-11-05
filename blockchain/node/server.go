@@ -29,6 +29,7 @@ var (
 // StartServer 启动服务
 func StartServer(nodeId string) {
 	nodeAddr = fmt.Sprintf("localhost:%s", nodeId)
+	fmt.Println("node address:", nodeAddr)
 	// 监听节点
 	listen, err := net.Listen(PROTOCOL, nodeAddr)
 	if err != nil {
@@ -49,6 +50,6 @@ func StartServer(nodeId string) {
 		if e != nil {
 			log.Panicf("accept connect failed: %v\n", err)
 		}
-		go HandleConn(conn, chain) // 使用线程单独处理请求
+		go HandleConn(conn, chain) // 使用goroutine单独处理请求
 	}
 }

@@ -105,5 +105,4 @@ func (cli *Client) SetNodeId(nodeId string) {
 // 启动节点
 func (cli *Client) startNode(nodeId string) {
 	node.StartServer(nodeId)
-
 }
