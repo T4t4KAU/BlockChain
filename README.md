@@ -6,7 +6,7 @@
 
 区块链使用区块(block)保存交易数据，以数据库为数据载体，区块链只对添加有效，其他操作均无效
 
-```
+```go
 // Block 区块基本结构和功能管理
 type Block struct {
 	TimeStamp     int64          // 区块时间戳
@@ -132,7 +132,7 @@ Nonce: 31851
 
 交易基于**UTXO交易模型**，UTXO即Unspent Transaction Output，指的是未花费交易输出
 
-```
+```go
 // UTXO 结构
 type UTXO struct {
 	TxHash []byte    // UTXO对应哈希
@@ -263,7 +263,7 @@ Nonce: 31851
 
 上述过程在源代码中已经体现:
 
-```
+```go
 // 共识算法
 // POW: 工作量证明
 
